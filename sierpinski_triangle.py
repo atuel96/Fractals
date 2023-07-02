@@ -17,11 +17,12 @@ def get_puntos(n):
     return puntos
 
 n = 3
-N = 1000000
+N = 100000
 puntos = get_puntos(n)
 
 x = [p[0] for p in puntos]
 y = [p[1] for p in puntos]
+
 punto = np.array([0.5, 0.1])
 x.append(punto[0])
 y.append(punto[1])
@@ -29,13 +30,13 @@ y.append(punto[1])
 
 for _i in range(N):
     esquina = random.choice(puntos)
-    punto = punto + 0.5 * (esquina - punto)
+    punto = punto + .5 * (esquina - punto)
     x.append(punto[0])
     y.append(punto[1])
 
 plt.figure(figsize=(10, 10))
-s = 0.05
+s = .5
 plt.scatter(x, y, s=s)
 plt.xlim(-1, 1)
 plt.ylim(-1, 1)
-plt.savefig(f"figs/sierpinski-n={n}-N={N}-s={s}.png")
+plt.savefig(f"other/sierpinski-n={n}-N={N}-s={s}.png")
